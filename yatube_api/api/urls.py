@@ -1,7 +1,12 @@
 from django.urls import path
-from .views import PostListCreateAPIView, PostDetailAPIView, CommentListCreateAPIView, CommentDetailAPIView, GroupDetailAPIView
-from .views import FollowListCreateAPIView, GroupListCreateAPIView
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
+from .views import (PostListCreateAPIView, PostDetailAPIView,
+                    CommentListCreateAPIView, CommentDetailAPIView,
+                    GroupDetailAPIView)
+from .views import (FollowListCreateAPIView,
+                    GroupListCreateAPIView)
+from rest_framework_simplejwt.views import (TokenObtainPairView,
+                                            TokenRefreshView,
+                                            TokenVerifyView)
 
 
 urlpatterns = [

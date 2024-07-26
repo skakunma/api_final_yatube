@@ -1,13 +1,14 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import (IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework import status
 from django_filters import FilterSet, CharFilter
 from .permissions import IsAuthenticatedOrReadOnly
 from posts.models import Post, Comment, Follow, Group, User
-from .serializers import PostSerializer, CommentSerializer, FollowSerializer, GroupSerializer
+from .serializers import (PostSerializer, CommentSerializer,
+                          FollowSerializer, GroupSerializer)
 from rest_framework.exceptions import PermissionDenied
-from django.contrib.auth import get_user_model
 from django_filters.rest_framework import DjangoFilterBackend
 from .pagination import PostPagination, CommentPagination
 from rest_framework import serializers
@@ -37,8 +38,8 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
 
-        if ('limit' not in request.query_params and 
-            'offset' not in request.query_params):
+        if ('limit' not in request.query_params
+             and 'offset' not in request.query_params):
             serializer = self.get_serializer(queryset, many=True)
             return Response(serializer.data)
 
