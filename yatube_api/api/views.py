@@ -39,7 +39,7 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
         queryset = self.get_queryset()
 
         if ('limit' not in request.query_params
-             and 'offset' not in request.query_params):
+            and 'offset' not in request.query_params):
             serializer = self.get_serializer(queryset, many=True)
             return Response(serializer.data)
 
